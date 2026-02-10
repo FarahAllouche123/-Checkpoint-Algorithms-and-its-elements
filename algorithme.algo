@@ -1,0 +1,37 @@
+ALGORITHM phrase
+VAR
+    ch : STRING;
+    len, words, vowels : INTEGER;
+
+BEGIN
+    len := 0;
+    vowels := 0;
+
+    Read(ch);
+
+    IF ch = '' THEN
+        words := 0;
+    ELSE
+        words := 1;  
+        FOR i FROM 1 TO Longueur(ch) DO
+            IF ch[i] = '.' THEN
+                BREAK;
+            ENDIF
+
+            len := len + 1;
+
+            IF ch[i] = ' ' THEN
+                words := words + 1;
+            ENDIF
+
+            IF ch[i] = 'a' OR ch[i] = 'e' OR ch[i] = 'i' OR ch[i] = 'o' OR ch[i] = 'u'
+               OR ch[i] = 'A' OR ch[i] = 'E' OR ch[i] = 'I' OR ch[i] = 'O' OR ch[i] = 'U' THEN
+                vowels := vowels + 1;
+            ENDIF
+        ENDFOR
+    ENDIF
+
+    Write("Longueur : ", len);
+    Write("Mots : ", words);
+    Write("Voyelles : ", vowels);
+END
